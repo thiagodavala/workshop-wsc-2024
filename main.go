@@ -81,9 +81,10 @@ func handleCalc(svc *dynamodb.Client, w http.ResponseWriter, r *http.Request) {
 
 	// Converte o hash para base64
 	base64Hash := base64.StdEncoding.EncodeToString(hash[:])
+	id := base64Hash
 
 	// Persistindo no DynamoDB
-	err := persistHashInDynamoDB(svc, base64Hash)
+	err := persistTextInDynamoDB(svc, id, input, base64Hash)
 	if err != nil {
 		http.Error(w, "Erro ao persistir no DynamoDB", http.StatusInternalServerError)
 		return
@@ -95,11 +96,12 @@ func handleCalc(svc *dynamodb.Client, w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, `{"base64_hash": "%s"}`, base64Hash)
 }
 
-// persistHashInDynamoDB salva o valor base64 na tabela DynamoDB
-func persistHashInDynamoDB(svc *dynamodb.Client, base64Hash string) error {
+// persistTextInDynamoDB salva o texto e o hash na tabela DynamoDB
+func persistTextInDynamoDB(svc *dynamodb.Client, id, texto, base64Hash string) error {
 	// Prepara o item para inserir na tabela
 	item := map[string]types.AttributeValue{
-		"hash": &types.AttributeValueMemberS{Value: base64Hash},
+		"id":    &types.AttributeValueMemberS{Value: id},    // ID gerado
+		"Texto": &types.AttributeValueMemberS{Value: texto}, // Texto original
 	}
 
 	// Insere o item na tabela do DynamoDB
