@@ -1,7 +1,7 @@
 # Workshop Worldskills Brasil
 #53 Cloud Computing - 2024
 
-## Runbook
+## Capi's Rentals Runbook
 
 <p align="center" width="100%">
     <img width="50%" src="imgs/logo.png">
