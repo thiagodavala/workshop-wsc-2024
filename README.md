@@ -14,10 +14,11 @@ system is comprised of a client application and a standalone server. The system 
 always return the same hash value for a given key. The system builds the hash based on a
 proprietary, computationally expensive hashing algorithm.
 
-The server is currently deployed as a single, standalone 'go' binary. There is no
-ession state to track or external calls to make so the server architecture should
+The server is currently not deployed, There is no
+session state to track or external calls to make so the server architecture should
 respond well to simple horizontal scaling. As there is expected to be a constrained
-set of client keys, the system should respond well to caching techniques.
+set of client keys.
+
 That's it for hints.
 
 
