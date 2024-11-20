@@ -1,28 +1,13 @@
 # Workshop Worldskills Brasil
 #53 Cloud Computing - 2024
 
-## How to Build
-
-```
-go mod init thiagoogeremias.io/workshopcloud2024
-go get github.com/aws/aws-sdk-go-v2
-go get github.com/aws/aws-sdk-go-v2/config
-go get github.com/aws/aws-sdk-go-v2/service/dynamodb
-go build -o server .
-```
-
-## How to execute
-
-```
-export DYNAMO_TABLE="tabelateste"
-export PORT="80"
-```
-
 ## Runbook
+
+![Capi's Rentals Logo](imgs/logo.png "Capi's Rentals")
 
 ### Introduction
 
-The Unicorn Rentals website provides cryptographically strong hashes as a service. The
+The Capi's Rentals website provides cryptographically strong hashes as a service. The
 system is comprised of a client application and a standalone server. The system will
 always return the same hash value for a given key. The system builds the hash based on a
 proprietary, computationally expensive hashing algorithm.
@@ -42,6 +27,33 @@ the site. The DevOps team is responsible for deploying code, scaling the site in
 to load, maintaining our published SLA's (including response time and uptime), disaster
 recovery, troubleshooting activities and any monitoring and alerting activities required
 to meet these objectives.
+
+### References
+
+The server application is deployed,as a 'go' binary compiled from source rumored to be stored in a github repository. However, the name of of this repository is unknown to the current operations and development staff.
+
+The server application is an x86 statically linked, unstripped ELF executable found here: https://github.com/thiagodavala/workshop-wsc-2024/blob/main/ami-bin/server
+
+The base OS we have chosen is Amazon Linux. This distribution was selected for it's broad industry support, stability, availability of support and excellent integration with AWS. This distributions was selected by SecOps based on their requirements for platform hardening.
+
+Architecture was moved to AWS as part of go-to-market plan. Operating the AWS CLI (http://docs.aws.amazon.com/cli/latest/userguide/installing.html) might be helpful.
+
+When working with AWS, only the following roles are allowed by SecOps... and finance:
+- ec2
+- s3
+- ebs
+- ecs
+- cloudwatch
+- systems manager
+- cloudtrail
+- config
+- vpc
+- cloudfront
+- lambda
+
+Getting bored of writing this silly thing. Who needs it?
+
+Binary file is in ami-bin folder.
 
 #### Tasks
 
@@ -70,6 +82,22 @@ New application test utility!
 export BASE_URL=localhost:80
 ./test_requests.sh
 ```
+
+
+> [!CAUTION]
+> If you are limited in creating certain resources because of using AWS Leaner Lab (e.g. create new VPC, Cloudformation and etc.), it is not my fault, turn around and try to make our application available!
+
+## Change Management
+
+HAH!
+
+## System Monitoring
+
+How to check ELB metrics?
+http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/policy_creating.html
+
+http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-cloudwatch-metrics.html
+
 
 ## To Do
 
