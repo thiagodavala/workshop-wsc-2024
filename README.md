@@ -3,7 +3,9 @@
 
 ## Runbook
 
-![Capi's Rentals Logo](imgs/logo.png "Capi's Rentals")
+<p align="center" width="100%">
+    <img width="50%" src="imgs/logo.png">
+</p>
 
 ### Introduction
 
