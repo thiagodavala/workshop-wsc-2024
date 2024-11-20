@@ -10,14 +10,9 @@
 ### Introduction
 
 The Capi's Rentals website provides cryptographically strong hashes as a service. The
-system is comprised of a client application and a standalone server. The system will
-always return the same hash value for a given key. The system builds the hash based on a
-proprietary, computationally expensive hashing algorithm.
+system is comprised of a client application and a standalone server. The system builds the hash based on a proprietary, computationally expensive hashing algorithm.
 
-The server is currently not deployed, There is no
-session state to track or external calls to make so the server architecture should
-respond well to simple horizontal scaling. As there is expected to be a constrained
-set of client keys.
+The server is currently not deployed, There is no session state to track or external calls to make so the server architecture should respond well to simple horizontal scaling. As there is expected to be a constrained set of client keys.
 
 That's it for hints.
 
@@ -25,7 +20,7 @@ That's it for hints.
 ### Scope
 
 This runbook describes the operational theory and practice for the production system
-powering the Unicorn Rentals website. The primary audience is the DevOps team running
+powering the Capi's Rentals website. The primary audience is the DevOps team running
 the site. The DevOps team is responsible for deploying code, scaling the site in response
 to load, maintaining our published SLA's (including response time and uptime), disaster
 recovery, troubleshooting activities and any monitoring and alerting activities required
@@ -106,3 +101,7 @@ http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-cloudw
 
 - How to test HA? Automate DR.
 - Refactor infrastructure using container architecture
+
+
+<hr/>
+Feito com :hearts: por Thiago Geremias
